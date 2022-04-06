@@ -65,3 +65,16 @@
 
  3-4. How many pokemon have a secondary type Poison?
 
+mysql> select * from pokemons where secondary_type = '7'; = 31 rows;
+mysql> select count(*) from pokemons
+    -> join types
+    -> on pokemons.secondary_type = types.id
+    -> where types.id = '7';
++----------+
+| count(*) |
++----------+
+|       31 |
++----------+
+1 row in set (0.01 sec)
+
+3-5.
