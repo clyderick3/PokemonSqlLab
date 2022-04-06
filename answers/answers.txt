@@ -77,4 +77,33 @@ mysql> select count(*) from pokemons
 +----------+
 1 row in set (0.01 sec)
 
-3-5.
+3-5. What are all the primary types and how many pokemon have that type?
+
+mysql> select count(*), types.name from pokemons join types on pokemons.primary_type = types.id group by pokemons.primary_type;
++----------+----------+
+| count(*) | name     |
++----------+----------+
+|       90 | Normal   |
+|       95 | Water    |
+|       59 | Grass    |
+|       38 | Rock     |
+|       38 | Fire     |
+|       29 | Ground   |
+|       27 | Poison   |
+|       61 | Bug      |
+|       35 | Electric |
+|       22 | Dragon   |
+|       19 | Steel    |
+|       24 | Dark     |
+|       25 | Fighting |
+|       38 | Psychic  |
+|       19 | Ghost    |
+|       14 | Fairy    |
+|       22 | Ice      |
+|        1 | Flying   |
++----------+----------+
+18 rows in set (0.02 sec)
+
+3-6 How many pokemon at level 100 does each trainer with at least one level 100 Pokemons have? (Hint: your query should not display a trainer?
+
+
