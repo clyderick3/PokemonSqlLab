@@ -1,0 +1,9 @@
+1. Imported.
+2a. 18 types of Pokemon.
+2b. mysql> Select * FROM Pokemons where ID = '45';
+    +----+-------+--------------+----------------+
+    | id | name  | primary_type | secondary_type |
+    +----+-------+--------------+----------------+
+    | 45 | Eevee |            1 |           NULL |
+    +----+-------+--------------+----------------+
+    1 row in set (0.02 sec)
