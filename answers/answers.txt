@@ -15,7 +15,7 @@
 2-4. How many types are there? 18 types of Pokemon.
         SELECT COUNT(*) FROM types;
 
-2-5. mysql> SELECT COUNT(*) FROM pokemons WHERE secondary_type <> 'null'
+2-5. mysql> SELECT COUNT(*) FROM pokemons WHERE secondary_type <> 'NULL'
          -> ;
      +----------+
      | COUNT(*) |
@@ -23,3 +23,45 @@
      |      316 |
      +----------+
      1 row in set, 1 warning (0.02 sec)
+
+ 3-1. What is each pokemon's primary type?
+
+ mysql>     select pokemons.name, types.name
+          -> from pokemons
+          -> join types on pokemons.primary_type = types.id;
+
+ 3-2. What is Rufflet's secondary type?
+
+ mysql> select * from pokemons where name = 'Rufflet';
+ +-----+---------+--------------+----------------+
+ | id  | name    | primary_type | secondary_type |
+ +-----+---------+--------------+----------------+
+ | 644 | Rufflet |            1 |             18 |
+ +-----+---------+--------------+----------------+
+ 1 row in set (0.01 sec). Type 18.
+
+ mysql> SELECT pokemons.name, types.name
+     -> FROM pokemons
+     -> JOIN types
+     -> ON pokemons.secondary_type = types.id
+     -> WHERE pokemons.name = 'rufflet';
+ +---------+--------+
+ | name    | name   |
+ +---------+--------+
+ | Rufflet | Flying |
+ +---------+--------+
+ 1 row in set (0.00 sec)
+
+ 3-3. What are the names of the pokemon that belong to the trainer with trainerID 303?
+
+ mysql> SELECT pokemons.name FROM pokemons JOIN pokemon_trainer ON pokemons.id = pokemon_trainer.pokemon_id WHERE pokemon_trainer.trainerid= '303';
+ +-----------+
+ | name      |
+ +-----------+
+ | Wailord   |
+ | Vileplume |
+ +-----------+
+ 2 rows in set (0.02 sec)
+
+ 3-4. How many pokemon have a secondary type Poison?
+
