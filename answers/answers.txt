@@ -1,8 +1,8 @@
 1. Imported.
 
-2a. 18 types of Pokemon.
+2-1. SELECT name FROM types; Normal --> Flying
 
-2b. mysql> Select * FROM Pokemons where ID = '45';
+2-2. mysql> Select * FROM Pokemons where ID = '45';
     +----+-------+--------------+----------------+
     | id | name  | primary_type | secondary_type |
     +----+-------+--------------+----------------+
@@ -10,4 +10,9 @@
     +----+-------+--------------+----------------+
     1 row in set (0.02 sec)
 
-2c. Select * From Pokemon; 656 rows in set of Pokemon.
+2-3. Select * From Pokemon; 656 rows in set of Pokemon.
+
+2-4. How many types are there? 18 types of Pokemon.
+        SELECT COUNT(*) FROM types;
+
+2-5.
