@@ -106,4 +106,6 @@ mysql> select count(*), types.name from pokemons join types on pokemons.primary_
 
 3-6 How many pokemon at level 100 does each trainer with at least one level 100 Pokemons have? (Hint: your query should not display a trainer?
 
+mysql> select count(*) from pokemon_trainer where pokelevel = 100 group by trainerid;
 
+3-7.
