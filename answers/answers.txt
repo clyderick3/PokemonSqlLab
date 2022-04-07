@@ -108,4 +108,36 @@ mysql> select count(*), types.name from pokemons join types on pokemons.primary_
 
 mysql> select count(*) from pokemon_trainer where pokelevel = 100 group by trainerid;
 
-3-7.
+3-7. How many pokemon only belong to one trainer and no other?
+
+mysql> SELECT count(*), pokemons.name FROM pokemon_trainer JOIN pokemons ON pokemon_trainer.pokemon_id = pokemons.id GROUP BY pokemon_id
+    -> Having count(*) = 1;
++----------+------------+
+| count(*) | name       |
++----------+------------+
+|        1 | Clawitzer  |
+|        1 | Barbaracle |
+|        1 | Tynamo     |
+|        1 | Rufflet    |
+|        1 | Lugia      |
+|        1 | Binacle    |
+|        1 | Malamar    |
+|        1 | Zekrom     |
+|        1 | Reshiram   |
+|        1 | Happiny    |
+|        1 | Zweilous   |
+|        1 | Swirlix    |
+|        1 | Spewpa     |
++----------+------------+
+13 rows in set (0.07 sec)
+
+4.
+
+SELECT p.name as 'Pokemon Name', t.trainername 'Trainer Name',
+pt.pokelevel 'Level', primary_type.name 'Primary Type',
+secondary_type.name 'Secondary Type'
+FROM pokemon_trainer as pt join trainers as t on pt.trainerID = t.trainerID
+JOIN pokemons as p on p.id = pt.pokemon_id
+JOIN types primary_type on p.primary_type = primary_type.id
+JOIN types secondary_type on p.secondary_type = secondary_type.id
+ORDER BY pt.maxhp DESC limit 10;
