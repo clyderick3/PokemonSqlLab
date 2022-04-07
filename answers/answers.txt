@@ -131,7 +131,8 @@ mysql> SELECT count(*), pokemons.name FROM pokemon_trainer JOIN pokemons ON poke
 +----------+------------+
 13 rows in set (0.07 sec)
 
-4.
+4. The strongest character was decided on the maxhp since
+maxhp is a good comparison to how strong a Pokemon can be.
 
 SELECT p.name as 'Pokemon Name', t.trainername 'Trainer Name',
 pt.pokelevel 'Level', primary_type.name 'Primary Type',
